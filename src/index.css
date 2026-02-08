@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blush: #e8b4bc;
+  --blush-dark: #d4a5ad;
+  --rose: #c9a9a6;
+  --cream: #fff8f5;
+  --gold: #c4a35a;
+  --burgundy: #722f37;
+  --charcoal: #2d2d2d;
+  --soft-white: #fefefe;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+}

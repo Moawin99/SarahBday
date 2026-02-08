@@ -1,0 +1,316 @@
+.birthday-page {
+  min-height: 100vh;
+  padding: 1.5rem 1rem 3rem;
+  position: relative;
+}
+
+.confetti-burst {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 0%,
+    transparent 40%,
+    rgba(232, 180, 188, 0.3) 50%,
+    transparent 60%
+  );
+  animation: confettiPulse 0.5s ease-out;
+}
+
+.confetti-burst::before,
+.confetti-burst::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle, #e8b4bc 2px, transparent 2px),
+    radial-gradient(circle, #c4a35a 2px, transparent 2px),
+    radial-gradient(circle, #c9a9a6 2px, transparent 2px);
+  background-size: 50px 50px, 80px 80px, 60px 60px;
+  background-position: 0 0, 40px 20px, 20px 40px;
+  animation: confettiFall 2s ease-in-out forwards;
+  opacity: 0.8;
+}
+
+@keyframes confettiPulse {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.8; }
+}
+
+@keyframes confettiFall {
+  0% { opacity: 0; transform: translateY(-20px); }
+  20% { opacity: 0.8; }
+  100% { opacity: 0.6; transform: translateY(10px); }
+}
+
+/* Header */
+.birthday-header {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.date-badge {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  background: linear-gradient(135deg, var(--blush) 0%, var(--blush-dark) 100%);
+  color: var(--burgundy);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.birthday-title {
+  font-size: clamp(2rem, 8vw, 3.2rem);
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
+}
+
+.name-flip-wrapper {
+  display: inline-block;
+  perspective: 120px;
+  vertical-align: bottom;
+}
+
+.name-flip-wrapper .name-accent {
+  background: linear-gradient(135deg, var(--burgundy), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.name-flip-sizer {
+  visibility: hidden;
+  display: inline-block;
+  font: inherit;
+  pointer-events: none;
+}
+
+.name-flip {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--burgundy), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: center bottom;
+  backface-visibility: hidden;
+}
+
+.name-flip-wrapper {
+  position: relative;
+  display: inline-block;
+  min-width: 10ch;
+  text-align: center;
+}
+
+.name-flip-out {
+  position: relative;
+  z-index: 2;
+  animation: flipOut 0.45s ease-in forwards;
+}
+
+.name-flip-in {
+  z-index: 1;
+  animation: flipIn 0.45s ease-out forwards;
+}
+
+@keyframes flipOut {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes flipIn {
+  from {
+    transform: rotateX(90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+.name-accent {
+  background: linear-gradient(135deg, var(--burgundy), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.birthday-subtitle {
+  font-size: 1rem;
+  color: var(--rose);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.celebrate-btn {
+  padding: 0.65rem 1.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--cream);
+  background: linear-gradient(135deg, var(--burgundy) 0%, var(--rose) 100%);
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.celebrate-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(114, 47, 55, 0.25);
+}
+
+.celebrate-btn:active {
+  transform: scale(0.98);
+}
+
+/* Favorites */
+.favorites-section {
+  padding: 2rem 0;
+}
+
+.favorites-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.favorite-card {
+  background: var(--soft-white);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(232, 180, 188, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.favorite-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(232, 180, 188, 0.2);
+}
+
+.favorite-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.favorite-image--top {
+  object-position: top center;
+}
+
+.favorite-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.25rem;
+}
+
+.favorite-card p {
+  font-size: 0.8rem;
+  color: var(--rose);
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+/* Wish section */
+.wish-section {
+  padding: 2rem 0;
+}
+
+.wish-card {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(145deg, rgba(232, 180, 188, 0.25) 0%, rgba(201, 169, 166, 0.15) 100%);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(232, 180, 188, 0.4);
+}
+
+.wish-card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--burgundy);
+  margin-bottom: 1rem;
+}
+
+.wish-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+  font-weight: 300;
+}
+
+.wish-card .sign-off {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: var(--rose);
+}
+
+/* Footer */
+.birthday-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.8rem;
+  color: var(--rose);
+  font-weight: 300;
+}
+
+@media (min-width: 480px) {
+  .birthday-page {
+    padding: 2rem 2rem 4rem;
+  }
+
+  .favorites-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .birthday-page {
+    padding: 3rem 2rem 5rem;
+  }
+
+  .birthday-header {
+    padding: 3rem 0 4rem;
+  }
+
+  .favorites-grid {
+    max-width: 36rem;
+  }
+
+  .wish-card {
+    max-width: 32rem;
+  }
+}
