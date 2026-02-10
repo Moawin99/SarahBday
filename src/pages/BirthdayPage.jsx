@@ -7,6 +7,7 @@ import italyImg from '../assets/italy.jpg'
 import smileImg from '../assets/smile.jpeg'
 import swagImg from '../assets/swag.webp'
 import brainImg from '../assets/brain.jpeg'
+import b_dayImg from '../assets/b_day.jpeg'
 
 const favorites = [
   {
@@ -51,6 +52,12 @@ const favorites = [
     title: 'Nurse',
     desc: 'The most badass nurse I know',
   },
+  {
+    id: 'elegance',
+    image: b_dayImg,
+    title: 'Elegance',
+    desc: 'She IS that girl'
+  }
 ]
 
 const NAMES = ['Cutie', 'Sarah', 'Sweet Girl']
