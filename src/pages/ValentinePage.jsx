@@ -106,7 +106,9 @@ export default function ValentinePage() {
 
       <section className="valentine-content">
         <div className="valentine-card valentine-ask-card">
-          <h2>Will you be my valentine?</h2>
+          {saidYes ? 
+          (<h2>Yaaaay 🥹</h2>) : (<h2>Be my valentine? 🥺</h2>)}
+          
           <div className="valentine-image-wrapper">
             <img
               src={saidYes ? dogSmileImg : flowerDogImg}
@@ -143,7 +145,7 @@ export default function ValentinePage() {
       </section>
 
       <footer className="valentine-footer">
-        Come on now. I couldn't only do your birthday 😃
+        Come on now. I couldn't only do something for your birthday 😃😉
       </footer>
     </div>
   )
