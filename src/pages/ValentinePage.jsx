@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react'
 import './ValentinePage.css'
-import flowersImg from '../assets/flowers.jpeg'
-import happyMarkImg from '../assets/happyMark.jpeg'
+import flowerDogImg from '../assets/flower_dog.jpeg'
+import dogSmileImg from '../assets/dogSmile.jpg'
 
 const FLOWER_EMOJIS = ['🌸', '🌺', '🌷', '🌼', '🌻', '💐', '🌹', '🪷']
 
@@ -102,7 +102,6 @@ export default function ValentinePage() {
       <header className="valentine-header">
         <span className="valentine-badge">February 14th</span>
         <h1>Happy Valentine's Day</h1>
-        <p className="valentine-subtitle">Sarah, you found the secret page 💌</p>
       </header>
 
       <section className="valentine-content">
@@ -110,7 +109,7 @@ export default function ValentinePage() {
           <h2>Will you be my valentine?</h2>
           <div className="valentine-image-wrapper">
             <img
-              src={saidYes ? happyMarkImg : flowersImg}
+              src={saidYes ? dogSmileImg : flowerDogImg}
               alt=""
               className={`valentine-main-image ${saidYes ? 'valentine-image-reveal' : ''}`}
             />
@@ -138,13 +137,13 @@ export default function ValentinePage() {
               </button>
             </div>
           ) : (
-            <p className="valentine-yes-message">Yay! Happy Valentine's Day! 💕</p>
+            <p className="valentine-yes-message">Yay! Happy Valentine's Day!</p>
           )}
         </div>
       </section>
 
       <footer className="valentine-footer">
-        Made with love — Valentine's surprise for Sarah ✨
+        Come on now. I couldn't only do your birthday 😃
       </footer>
     </div>
   )
