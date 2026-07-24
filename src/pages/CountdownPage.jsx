@@ -4,7 +4,7 @@ import { TOGETHER_PHOTOS } from '../data/togetherPhotos'
 
 // Set this to your next visit date, e.g. new Date('2026-07-15T00:00:00')
 // Leave as null to show the "no flight booked" message
-const TARGET_DATE = new Date('2026-07-03T00:00:00')
+const TARGET_DATE = new Date('2026-09-01T22:37:00')
 
 function getTimeLeft(target) {
   const now = new Date()
@@ -20,10 +20,20 @@ function getTimeLeft(target) {
   }
 }
 
+function shufflePhotos(photos) {
+  const shuffled = [...photos]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
 export default function CountdownPage() {
   const initialTimeLeft = TARGET_DATE ? getTimeLeft(TARGET_DATE) : null
   const [timeLeft, setTimeLeft] = useState(initialTimeLeft)
   const [arrived, setArrived] = useState(initialTimeLeft === null && !!TARGET_DATE)
+  const [photos] = useState(() => shufflePhotos(TOGETHER_PHOTOS))
 
   useEffect(() => {
     if (!TARGET_DATE) return
@@ -100,10 +110,10 @@ export default function CountdownPage() {
       </section>
 
       <section className="countdown-gallery">
-        <h2 className="countdown-gallery-title">Us 🩷</h2>
+        <h2 className="countdown-gallery-title">🩷 US 🩷</h2>
         <div className="countdown-grid">
-          {TOGETHER_PHOTOS.map((src, i) => (
-            <div key={i} className="countdown-grid-item">
+          {photos.map((src) => (
+            <div key={src} className="countdown-grid-item">
               <img src={src} alt="" loading="lazy" />
             </div>
           ))}
@@ -111,7 +121,7 @@ export default function CountdownPage() {
       </section>
 
       <footer className="countdown-footer">
-        Every second counts 🩷
+        🩷 NY 🫱🏽‍🫲🏾 LA 🩷
       </footer>
     </div>
   )
