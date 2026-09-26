@@ -4,7 +4,7 @@ import { TOGETHER_PHOTOS } from '../data/togetherPhotos'
 
 // Set this to your next visit date, e.g. new Date('2026-07-15T00:00:00')
 // Leave as null to show the "no flight booked" message
-const TARGET_DATE = new Date('2026-09-01T22:37:00')
+const TARGET_DATE = new Date('2026-10-22T14:33:00')
 
 function getTimeLeft(target) {
   const now = new Date()
